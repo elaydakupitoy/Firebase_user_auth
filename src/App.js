@@ -10,6 +10,8 @@ import {auth} from './firebase'
 import {onAuthStateChanged} from 'firebase/auth'
 import PrivateRoute from './PrivateRoute'
 import {Navigate} from 'react-router-dom'
+import Home from './HomeTwo'
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -23,6 +25,10 @@ function App() {
   }, [])
 
   return (
+    <div>
+<Navbar />
+    
+    
     <Router>
       <AuthProvider value={{currentUser, timeActive, setTimeActive}}>
         <Routes>
@@ -42,9 +48,11 @@ function App() {
             : <Navigate to='/' replace/>
           } />
           <Route path='/verify-email' element={<VerifyEmail/>} /> 
+          <Route path='/home' element={<Home/>} /> 
         </Routes>  
       </AuthProvider>
   </Router>
+  </div>
   );
 }
 
