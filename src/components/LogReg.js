@@ -2,40 +2,68 @@ import React from  'react';
 import {useState} from 'react'
 
 function Welcome(props) {
-    var visLoggedIn = props.isLoggedIn;
-
-    const myFunction = (param) => {
-        console.log("do something: ", param);
-      };
+     
+    const [showMe, setShowMe] = useState(props.isLoggedIn);
+     
      
 
-    if(visLoggedIn) {
+    if(showMe) {
         return (
-            <div className="shadow-lg p-3 mb-5 bg-white rounded">
+            <div className="shadow-lg p-5 bg-white rounded">
                 <form className="signUp">
                     <h3>Create Your Account</h3>
                     <p>Just enter your email address 
                     and your password for join.
                     </p>
-                    <input className="w100" type="email" placeholder="Insert eMail" required autoComplete='off' />
-                    <input type="password" placeholder="Insert Password" required />
-                    <input type="password" placeholder="Verify Password" required />
-                    <button className="form-btn sx log-in" type="button">Log In</button>
-                    <button className="form-btn dx" type="submit">Sign Up</button>
+                    <div className="form-group-sm">
+                        
+                        <small className="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required/>
+                                             
+                        <small className="form-text text-muted">Enter your password with more than 6 letters.</small>
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" required/>
+                        <small className="form-text text-muted">Verify Password</small>
+                        <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Verify Password" required/>
+                    </div>
+                    
+                    <button className="btn btn-custom   waves-effect waves-light"  type="button">Sign Up</button>
+                    
+                    <button className="btn" onClick={() => setShowMe(!showMe)} type="submit">Have Account, Login</button>
                 </form>
             </div>
         )
     } else {
         return (
-            <div className="shadow-lg p-3 mb-5 bg-white rounded">
+            <div className="shadow-lg p-5 bg-white rounded ">
                 <form className="signIn">
-                    <h3>Welcome Back !</h3>
-                    <button className="fb" type="button">Log In With Facebook</button>
-                    <p>- or -</p>
-                    <input type="email" placeholder="Insert eMail" autocomplete='off' required />
-                    <input type="password" placeholder="Insert Password" required />
-                    <button className="form-btn sx back" type="button">Back</button>
-                    <button className="form-btn dx" type="submit">Log In</button>
+                    <h3>Sign In</h3>
+                     
+
+                    
+                     <div className="form-group-sm">
+                        <button className="btn waves-effect  m-3" type="button"> <i className="bi bi-facebook p-3"></i>&nbsp; Facebook</button>
+                        <button className="btn waves-effect  m-3" type="button"> <i className="bi bi-google p-3"></i>&nbsp; Google</button>
+                    </div>
+                     
+                   
+                    <div className="text-center">- or -</div>
+
+                    <div className="form-group-sm">
+                        
+                        <small className="form-text text-muted">Email</small>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                             
+                        <small className="form-text text-muted">Password</small>
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" required />
+                         
+                    </div>
+
+
+
+
+ 
+                    <button className="btn btn-custom   waves-effect waves-light"  type="button">Login</button>
+                    <button className="btn" onClick={() => setShowMe(!showMe)} type="submit">Create Account</button>
                     </form>
             </div>
         

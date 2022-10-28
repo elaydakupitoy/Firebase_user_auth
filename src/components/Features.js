@@ -19,11 +19,11 @@ class Features extends React.Component {
                                 <li className="">Sed ut perspiciatis unde omnis iste natus error sit.</li>
                                 <li className="">Submit Your Orgnization.</li>
                             </ul>
-                            <Link to="./" className="btn btn-custom margin-t-30 waves-effect waves-light">Learn More <i className="mdi mdi-arrow-right"></i></Link>
+                           
                         </div>
                     </div>
                     <div className="col-lg-7">
-                        <div className="features-img features-right text-right">
+                        <div className="features-img features-right">
 
                         {/* starthere */}
 
